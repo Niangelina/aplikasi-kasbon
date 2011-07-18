@@ -67,26 +67,10 @@ Ext.define('kasbon.panel.MainPanel', {
                         }
                         
                     
-                    },
-                    {
-                        xtype : 'menuitem',
-                        text : 'Pencairan Kasbon',
-                        screenType: 'kasbon.panel.pencairanKasbonPanel',
-                        handler : function(item){
-                            Ext.getCmp('centerpanel')
-                            .displayScreen(item.screenType);
-                        }
-                    //
-                    }
-                    , {
-                        xtype : 'menuitem',
-                        text : 'Pelunasan Kasbon',
-                        screenType: 'kasbon.panel.pelunasanKasbonPanel',
-                        handler : function(item){
-                            Ext.getCmp('centerpanel')
-                            .displayScreen(item.screenType);
-                        }
-                                   
+                    },{
+                        text : 'Pencairan Kasbon'                  
+                    },{
+                        text : 'Pelunasan Kasbon'                  
                     }]
                 }
                 
