@@ -12,49 +12,43 @@ Ext.define('kasbon.grid.UserManagementGrid', {
     collapsible: true,           
     initComponent: function() {
         this.columns = [
-             
         {
-                
             dataIndex: 'kode',
-            header: 'Kode Pegawai',
+            header: 'Username',
             width: 150,
-            sortable: true
-               
+            sortable: true      
         },
         {
-                
             dataIndex: 'nama',
-            header: 'Nama Pegawai',
+            header: 'Role',
             width: 150,
             sortable: true
         },
-        {
-                
+        {       
             dataIndex: 'jabatan',
-            header: 'Jabatan',
+            header: 'Email',
             width: 150,
             sortable: true
         }
             
         ];
-            
         this.store = new Ext.data.Store({
             model: 'kasbon.model.m_pegawaiModel',
             data: [
             {
-                kode: 'feldy',
-                nama: 'didi',
-                jabatan: 'f3ldy10rpl@gmail.com'
+                kode: 'Fanani M. Ihsan',
+                nama: 'Administrator',
+                jabatan: 'fanani@artivisi.com'
             },
             {
-                kode: 'feldy',
-                nama: 'didi',
-                jabatan: 'f3ldy10rpl@gmail.com'
+                kode: 'Ira',
+                nama: 'Administrator',
+                jabatan: 'ira@artivisi.com'
             },
             {
-                kode: 'feldy',
-                nama: 'didi',
-                jabatan: 'f3ldy10rpl@gmail.com'
+                kode: 'Dadang',
+                nama: 'User',
+                jabatan: 'dadang@artivisi.com'
             }
                     
             ]
@@ -62,10 +56,4 @@ Ext.define('kasbon.grid.UserManagementGrid', {
         })
         kasbon.grid.UserManagementGrid.superclass.initComponent.call(this);
     }
-    
-   
 });
-
-
-
-

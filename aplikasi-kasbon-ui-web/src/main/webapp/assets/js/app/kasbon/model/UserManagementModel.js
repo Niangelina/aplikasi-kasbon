@@ -3,9 +3,9 @@
  * and open the template in the editor.
  */
 
- Ext.define('kasbon.model.UserManagementModel', {
+Ext.define('kasbon.model.UserManagementModel', {
     extend: 'Ext.data.Model',
-    fields: ['roleopt','uname']
-   });
+    fields: ['uname','roleopt','email']
+});
 
 
