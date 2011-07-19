@@ -27,9 +27,5 @@ Ext.define('kasbon.panel.PegawaiPanel', {
         };
         kasbon.panel.PegawaiPanel.superclass.initComponent.call(this);
     }
-    
-   
-    
-   
 });
 

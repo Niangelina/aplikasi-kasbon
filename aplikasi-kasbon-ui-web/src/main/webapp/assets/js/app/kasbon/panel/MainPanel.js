@@ -28,17 +28,17 @@ Ext.define('kasbon.panel.MainPanel', {
                     xtype : 'menu',
                     plain : true,
                     items : [ {
-                        text : 'Master User', 
+                            
+                        text : 'User Management'
+                    }
+                    ,{
+                        text : 'Master Pegawai', 
                         scope : this,
                         handler : function(item){
                             Ext.getCmp('centerpanel')
                             .displayScreen(item.screenType);
                         },
                         screenType : 'kasbon.panel.PegawaiPanel'
-                    },
-                    {
-                        text : 'Master Pegawai'
-                    
                     }]
                 }
             }, {
@@ -104,7 +104,7 @@ Ext.define('kasbon.panel.MainPanel', {
                         xtype : 'menuitem',
                         text : 'Rekap Kasbon Per Pegawai',
                         screenType: 'kasbon.panel.LaporanKasbonPanel',
-                       handler : function(item){
+                        handler : function(item){
                             Ext.getCmp('centerpanel')
                             .displayScreen(item.screenType);
                         }
