@@ -12,10 +12,16 @@ Ext.define('kasbon.panel.UserManagementPanel', {
     layot: 'center',
     width: 200,
     initComponent:function(){
-        this.items={
-            xtype: 'kasbon.form.UserManagementForm',
+        this.items = [
+        {
+            xtype: 'kasbon.form.UserManagementForm'
+        },
+        {
+            xtype: 'kasbon.grid.UserManagementGrid', 
             region: 'center'
-        };
+        }
+        ];
+        
         this.tbar = {
             xtype: 'kasbon.toolbar.CrudToolbar'
           
