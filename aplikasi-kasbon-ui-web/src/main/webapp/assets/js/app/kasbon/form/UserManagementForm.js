@@ -7,7 +7,7 @@
 Ext.define('kasbon.form.UserManagementForm', {
     extend: 'Ext.form.Panel',
     alias: 'widget.kasbon.form.UserManagementForm',
-    title: 'Input Pegawai',
+    title: 'Input User',
     region: 'north',
     height: 300,
     width: 500  ,
@@ -70,7 +70,7 @@ Ext.define('kasbon.form.UserManagementForm', {
         },
         {
             xtype: 'combo',
-            fieldLabel: 'Pegawai',
+            fieldLabel: 'Role Option',
             anchor: '55%',
             displayField:'name',
             store: 'roleStore',
