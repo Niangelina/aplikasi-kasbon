@@ -4,9 +4,9 @@
  */
 
 
-Ext.define('kasbon.form.m_pegawaiForm', {
+Ext.define('kasbon.form.UserManagementForm', {
     extend: 'Ext.form.Panel',
-    alias: 'widget.kasbon.form.m_pegawaiForm',
+    alias: 'widget.kasbon.form.UserManagementForm',
     title: 'Input Pegawai',
     region: 'north',
     height: 300,
@@ -17,43 +17,28 @@ Ext.define('kasbon.form.m_pegawaiForm', {
         this.items = [
         {
             xtype: 'textfield',
-            fieldLabel: 'Kode Pegawai',
+            fieldLabel: 'Username',
             anchor: '55%',
             margin: '0 0 0 15',
             padding: '20 0 0 0'
         },
         {
             xtype: 'textfield',
-            fieldLabel: 'Nama Pegawai',
+            fieldLabel: 'Password',
+            inputType: 'password',
             anchor: '55%',
             margin: '0 0 0 15',
             padding: '20 0 0 0'
         },
         {
             xtype: 'textfield',
-            fieldLabel: 'Jabatan',
+            fieldLabel: 'Retry Password',
+            inputType: 'password',
             anchor: '55%',
             margin: '0 0 0 15',
             padding: '20 0 20 0'
         },
-        {
-            xtype: 'button',
-            text: 'Simpan',
-            width: 80,
-            height: 35,
-            margin : '0 5 0 120'
-                
-              
-        },
-        {
-            xtype: 'button',
-            text: 'Batal',
-            width: 56,
-            height: 35
-                
-               
-        }
         ];
-        kasbon.form.m_pegawaiForm.superclass.initComponent.call(this);
+        kasbon.form.UserManagementForm.superclass.initComponent.call(this);
     }
 });

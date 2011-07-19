@@ -9,13 +9,17 @@ Ext.define('kasbon.panel.UserManagementPanel', {
     alias: 'widget.kasbon.panel.UserManagementPanel',
     id : 'kasbon.panel.UserManagementPanel', //id=xtype supaya bisa display screen
     title: 'User Management',
+    layot: 'center',
     width: 200,
     initComponent:function(){
-        this.items = [
-            {
-                html: 'kasbon.form.m_pegawaiForm'
-            }
-        ]
+        this.items={
+            xtype: 'kasbon.form.UserManagementForm',
+            region: 'center'
+        };
+        this.tbar = {
+            xtype: 'kasbon.toolbar.CrudToolbar'
+          
+        };
         kasbon.panel.UserManagementPanel.superclass.initComponent.call(this);
     }
 });

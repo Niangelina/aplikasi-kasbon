@@ -17,6 +17,7 @@ Ext.require([
     'kasbon.grid.ApprovalGrid',
     'kasbon.grid.LaporanKasbonGrid',
     'kasbon.form.pengajuanKasbonForm',
+    'kasbon.form.UserManagementForm',
     'kasbon.form.m_pegawaiForm',
     'kasbon.form.pelunasanKasbonForm',
     'kasbon.form.pencairanKasbonForm',
