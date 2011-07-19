@@ -14,6 +14,36 @@ Ext.define('kasbon.form.UserManagementForm', {
     titleCollapse: true,
     collapsible: true,
     initComponent: function() {
+        Ext.define('model', {
+            extend: 'Ext.data.Model',
+            fields: [
+            {
+                type: 'string',
+                name: 'name'
+            }
+            ]
+        });
+        //strore 
+        
+        var roleData = [
+        {
+            "name":"Administrator"
+        },
+
+        {
+            "name":"User"
+        }
+        ];
+        
+                
+        //function Data store
+        var roleStore= new Ext.data.Store({
+            model: 'model',
+            id : 'roleStore',
+            data : roleData,
+            autoLoad: true
+        });
+        
         this.items = [
         {
             xtype: 'textfield',
@@ -38,6 +68,17 @@ Ext.define('kasbon.form.UserManagementForm', {
             margin: '0 0 0 15',
             padding: '20 0 20 0'
         },
+        {
+            xtype: 'combo',
+            fieldLabel: 'Pegawai',
+            anchor: '55%',
+            displayField:'name',
+            store: 'roleStore',
+            queryMode:'local',
+            emptyText: '--Role Option--',
+            margin: '0 0 0 15',
+            padding: '20 0 0 0'    
+        }
         ];
         kasbon.form.UserManagementForm.superclass.initComponent.call(this);
     }

@@ -10,7 +10,7 @@ Ext.define('kasbon.form.pengajuanKasbonForm', {
     width: 500,
     height: 300,
     titleCollapse: true,
-collapsible: true,
+    collapsible: true,
     padding: 10,
     initComponent: function() {
         Ext.define('model', {
