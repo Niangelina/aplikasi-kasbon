@@ -35,23 +35,6 @@ Ext.define('kasbon.form.m_pegawaiForm', {
             anchor: '55%',
             margin: '0 0 0 15',
             padding: '20 0 20 0'
-        },
-        {
-            xtype: 'button',
-            text: 'Simpan',
-            width: 80,
-            height: 35,
-            margin : '0 5 0 120'
-                
-              
-        },
-        {
-            xtype: 'button',
-            text: 'Batal',
-            width: 56,
-            height: 35
-                
-               
         }
         ];
         kasbon.form.m_pegawaiForm.superclass.initComponent.call(this);

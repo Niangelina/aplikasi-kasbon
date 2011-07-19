@@ -8,7 +8,7 @@ Ext.define('kasbon.panel.PegawaiPanel', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.kasbon.panel.PegawaiPanel',
     id : 'kasbon.panel.PegawaiPanel', //id=xtype supaya bisa display screen
-    title: 'User Management',
+    title: 'Master Pegawa Panel',
     width: 200,
     initComponent: function() {
         this.items = [
