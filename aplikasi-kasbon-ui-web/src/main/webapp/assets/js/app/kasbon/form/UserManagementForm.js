@@ -81,5 +81,22 @@ Ext.define('kasbon.form.UserManagementForm', {
         }
         ];
         kasbon.form.UserManagementForm.superclass.initComponent.call(this);
+        this.disableUserManagementForm();
+    },
+    enableUserManagementForm: function(){
+        this
+        .getForm()
+        .getFields()
+        .each(function(item){
+            item.setReadOnly(false);
+        });
+    },
+    disableUserManagementForm: function(){
+        this
+        .getForm()
+        .getFields()
+        .each(function(item){
+            item.setReadOnly(true);
+        });
     }
 });
