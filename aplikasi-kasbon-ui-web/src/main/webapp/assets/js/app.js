@@ -31,6 +31,7 @@ Ext.require([
     'kasbon.panel.pencairanKasbonPanel',
     'kasbon.panel.CenterPanel',
     'kasbon.panel.PegawaiPanel',
+    'kasbon.panel.UserManagementPanel',
     'kasbon.panel.MainPanel',
     'kasbon.panel.pelunasanKasbonPanel',
     ]);

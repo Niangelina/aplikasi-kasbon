@@ -29,7 +29,13 @@ Ext.define('kasbon.panel.MainPanel', {
                     plain : true,
                     items : [ {
                             
-                        text : 'User Management'
+                        text : 'User Management',
+                        scope:this,
+                        handler : function(item){
+                            Ext.getCmp('centerpanel')
+                            .displayScreen(item.screenType);
+                        },
+                        screenType : 'kasbon.panel.UserManagementPanel'
                     }
                     ,{
                         text : 'Master Pegawai', 
