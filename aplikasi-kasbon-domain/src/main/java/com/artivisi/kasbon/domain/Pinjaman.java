@@ -1,7 +1,6 @@
 package com.artivisi.kasbon.domain;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,37 +10,29 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name="t_pengajuan")
-public class Pengajuan {
+@Table(name="t_pinjaman")
+public class Pinjaman {
 	@Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
 	private String id;
 	
-	@Column(name="waktu_pengajuan", nullable=false)
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date waktuPengajuan = new Date();
-	
 	@ManyToOne
-	@JoinColumn(name="id_pemohon", nullable=false)
-	private Karyawan pemohon;
+	@JoinColumn(name="id_peminjam", nullable=false)
+	private Karyawan peminjam;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(nullable=false)
+	private StatusPinjaman status = StatusPinjaman.DISETUJUI;
 	
 	@Column(nullable=false)
 	private BigDecimal nilai;
 	
-	@OneToOne(mappedBy="pengajuan")
-	private Persetujuan persetujuan;
-	
-	@Enumerated(EnumType.STRING)
 	@Column(nullable=false)
-	private StatusPinjaman status = StatusPinjaman.DIAJUKAN;
-	
+	private BigDecimal saldo;
 }
