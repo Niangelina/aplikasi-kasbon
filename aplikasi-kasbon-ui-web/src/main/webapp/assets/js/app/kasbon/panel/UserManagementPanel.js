@@ -13,13 +13,13 @@ Ext.define('kasbon.panel.UserManagementPanel', {
     width: 200,
     initComponent:function(){
         this.items = [
-            {
-                xtype: 'kasbon.form.UserManagementForm'
-            },
-            {
-                xtype: 'kasbon.grid.UserManagementGrid', 
-                region: 'center'
-            }
+        {
+            xtype: 'kasbon.form.UserManagementForm'
+        },
+        {
+            xtype: 'kasbon.grid.UserManagementGrid', 
+            region: 'center'
+        }
         ];
         
         this.tbar = {
@@ -37,35 +37,30 @@ Ext.define('kasbon.panel.UserManagementPanel', {
         kasbon.panel.UserManagementPanel.superclass.initComponent.call(this);
     },
     newUser: function(){
-                Ext.getCmp('kasbon.form.UserManagementForm').getForm().reset();
-                Ext.getCmp('kasbon.form.UserManagementForm').enableUserManagementForm();
-//        Ext.MessageBox.alert(
-//        'Error!',
-//        'Implement button add'
-//    )
+        Ext.getCmp('kasbon.form.UserManagementForm').getForm().reset();
+        Ext.getCmp('kasbon.form.UserManagementForm').enableUserManagementForm();
+
     },
     editUser: function(){
         Ext.MessageBox.alert(
-        'Error!',
-        'Implement button Edit'
-    )
+            'Error!',
+            'Implement button Edit'
+            )
     },
     deleteUser: function(){
         Ext.MessageBox.alert(
-        'Error!',
-        'Implement button delete'
-    )
+            'Error!',
+            'Implement button delete'
+            )
     },
     saveUser: function(){
         Ext.MessageBox.alert(
-        'Error!',
-        'Implement button save'
-    )
+            'Error!',
+            'Implement button save'
+            )
     },
     cancelUser: function(){
-        Ext.MessageBox.alert(
-        'Error!',
-        'Implement button cancel'
-    )
+        Ext.getCmp('kasbon.form.UserManagementForm').getForm().reset();
+        Ext.getCmp('kasbon.form.UserManagementForm').disableUserManagementForm();
     }
 });
