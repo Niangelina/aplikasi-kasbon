@@ -99,5 +99,27 @@ Ext.define('kasbon.form.UserManagementForm', {
         .each(function(item){
             item.setReadOnly(true);
         });
+    },
+    onSave: function(){
+        Ext.getBody().mask('Saving User', 'x-mask-loading');
+        Ext.getCmp('kasbon.form.UserManagementForm').getForm().submit({
+            method: 'POST',
+            url     : 'user_management/save',
+            scope   : this,
+            success : this.onSaveSuccess,
+            failure : this.onSaveFailure
+        });
+    },
+    onSaveSuccess: function(){
+        Ext.getBody().unmask();
+        Ext.getCmp('kasbon.form.UserManagementForm').getForm().reset();
+        this.disableUserManagementForm();
+        this.fireEvent('onUserManagementSaveSuccess', this);
+    }, 
+    onSaveFailure: function(){
+        Ext.getCmp('kasbon.form.UserManagementForm').getForm().reset();
+        this.disableUserManagementForm();
+        Ext.getBody().unmask();
+        this.fireEvent('onUserManagementSaveFailure', this);
     }
 });

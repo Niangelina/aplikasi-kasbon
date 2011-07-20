@@ -54,13 +54,19 @@ Ext.define('kasbon.panel.UserManagementPanel', {
             )
     },
     saveUser: function(){
-        Ext.MessageBox.alert(
-            'Error!',
-            'Implement button save'
-            )
+        Ext.getCmp('kasbon.form.UserManagementForm').onSave();
     },
     cancelUser: function(){
         Ext.getCmp('kasbon.form.UserManagementForm').getForm().reset();
         Ext.getCmp('kasbon.form.UserManagementForm').disableUserManagementForm();
+    },
+    onUserManagementSaveSuccess: function(){
+        //Ext.getCmp('billing.grid.TariffGroupGrid').store.load();
+        Ext.MessageBox.alert('Success!', 'User has been saved');
+    },
+    
+    onUserManagementSaveFailure: function(){
+        //Ext.getCmp('billing.grid.TariffGroupGrid').store.load();
+        Ext.MessageBox.alert('Error!', 'Error saving user !');
     }
 });
