@@ -10,50 +10,33 @@ Ext.define('kasbon.grid.UserManagementGrid', {
     height: 200,
     width: 500,
     collapsible: true,           
-    initComponent: function() {
+    initComponent: function(){
         this.columns = [
         {
-            dataIndex: 'kode',
-            header: 'Username',
-            width: 150,
-            sortable: true      
+            text     : 'Name', 
+            width	 : 100,
+            sortable : false,
+            dataIndex: 'name'
         },
         {
-            dataIndex: 'nama',
-            header: 'Role',
-            width: 150,
-            sortable: true
-        },
-        {       
-            dataIndex: 'jabatan',
-            header: 'Email',
-            width: 150,
-            sortable: true
+            text     : 'Description',
+            flex    : 1,
+            sortable : true,
+            dataIndex: 'description'
         }
-            
         ];
-        this.store = new Ext.data.Store({
-            model: 'kasbon.model.m_pegawaiModel',
-            data: [
-            {
-                kode: 'Fanani M. Ihsan',
-                nama: 'Administrator',
-                jabatan: 'fanani@artivisi.com'
-            },
-            {
-                kode: 'Ira',
-                nama: 'Administrator',
-                jabatan: 'ira@artivisi.com'
-            },
-            {
-                kode: 'Dadang',
-                nama: 'User',
-                jabatan: 'dadang@artivisi.com'
+        this.store = Ext.create('Ext.data.Store', {
+            autoLoad: true,
+            model: 'kasbon.model.UserManagementModel',
+            proxy: {
+                type: 'ajax',
+                url: 'http://localhost/aplikasi-billing/m_tariff_group/jsonlist', 
+                reader: {
+                    type: 'json', 
+                    root: 'data'
+                }
             }
-                    
-            ]
-                
-        })
+        });
         kasbon.grid.UserManagementGrid.superclass.initComponent.call(this);
     }
 });

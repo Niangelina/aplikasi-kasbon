@@ -5,7 +5,9 @@
 
 Ext.define('kasbon.model.UserManagementModel', {
     extend: 'Ext.data.Model',
-    fields: ['uname','roleopt','email']
+    fields: [
+        {name: 'id', type: 'int'},
+        {name: 'name',  type: 'string'},
+        {name: 'description', type: 'string'}
+    ]
 });
-
-
