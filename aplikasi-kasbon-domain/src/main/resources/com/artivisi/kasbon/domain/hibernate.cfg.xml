@@ -19,7 +19,12 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
 	<session-factory>
-
+		<mapping class="com.artivisi.kasbon.domain.Karyawan"/>
+		<mapping class="com.artivisi.kasbon.domain.Pengajuan"/>
+		<mapping class="com.artivisi.kasbon.domain.Persetujuan"/>
+		<mapping class="com.artivisi.kasbon.domain.Pinjaman"/>
+		<mapping class="com.artivisi.kasbon.domain.Pencairan"/>
+		<mapping class="com.artivisi.kasbon.domain.Pembayaran"/>
 	</session-factory>
 </hibernate-configuration>
 
