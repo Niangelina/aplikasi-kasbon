@@ -7,7 +7,7 @@
 Ext.define('kasbon.panel.UserManagementPanel', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.kasbon.panel.UserManagementPanel',
-    id : 'kasbon.panel.UserManagementPanel', //id=xtype supaya bisa display screen
+    id : 'kasbon.panel.UserManagementPanel',
     title: 'User Management',
     layot: 'center',
     width: 200,
@@ -37,40 +37,32 @@ Ext.define('kasbon.panel.UserManagementPanel', {
         kasbon.panel.UserManagementPanel.superclass.initComponent.call(this);
     },
     newUser: function(){
-        //        Ext.getCmp('billing.form.UserManagementForm').getForm().reset();
-        //        Ext.getCmp('billing.form.UserManagementForm').enableUserManagementForm();
-        Ext.MessageBox.alert(
-        'Error!',
-        'Implement button add'
-    )
+                Ext.getCmp('kasbon.form.UserManagementForm').getForm().reset();
+                Ext.getCmp('kasbon.form.UserManagementForm').enableUserManagementForm();
+//        Ext.MessageBox.alert(
+//        'Error!',
+//        'Implement button add'
+//    )
     },
     editUser: function(){
-        //        Ext.getCmp('billing.form.UserManagementForm').getForm().reset();
-        //        Ext.getCmp('billing.form.UserManagementForm').enableUserManagementForm();
         Ext.MessageBox.alert(
         'Error!',
         'Implement button Edit'
     )
     },
     deleteUser: function(){
-        //        Ext.getCmp('billing.form.UserManagementForm').getForm().reset();
-        //        Ext.getCmp('billing.form.UserManagementForm').enableUserManagementForm();
         Ext.MessageBox.alert(
         'Error!',
         'Implement button delete'
     )
     },
     saveUser: function(){
-        //        Ext.getCmp('billing.form.UserManagementForm').getForm().reset();
-        //        Ext.getCmp('billing.form.UserManagementForm').enableUserManagementForm();
         Ext.MessageBox.alert(
         'Error!',
         'Implement button save'
     )
     },
     cancelUser: function(){
-        //        Ext.getCmp('billing.form.UserManagementForm').getForm().reset();
-        //        Ext.getCmp('billing.form.UserManagementForm').enableUserManagementForm();
         Ext.MessageBox.alert(
         'Error!',
         'Implement button cancel'

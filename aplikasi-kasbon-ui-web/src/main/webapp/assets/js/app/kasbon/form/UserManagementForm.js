@@ -7,6 +7,7 @@
 Ext.define('kasbon.form.UserManagementForm', {
     extend: 'Ext.form.Panel',
     alias: 'widget.kasbon.form.UserManagementForm',
+    id : 'kasbon.form.UserManagementForm',
     title: 'Input User',
     region: 'north',
     height: 300,
