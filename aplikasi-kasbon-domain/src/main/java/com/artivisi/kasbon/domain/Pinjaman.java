@@ -64,4 +64,61 @@ public class Pinjaman {
 			cascade=CascadeType.ALL, 
 			orphanRemoval=true)
 	private List<Pembayaran> daftarPembayaran = new ArrayList<Pembayaran>();
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Karyawan getPeminjam() {
+		return peminjam;
+	}
+
+	public void setPeminjam(Karyawan peminjam) {
+		this.peminjam = peminjam;
+	}
+
+	public StatusPinjaman getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusPinjaman status) {
+		this.status = status;
+	}
+
+	public BigDecimal getNilai() {
+		return nilai;
+	}
+
+	public void setNilai(BigDecimal nilai) {
+		this.nilai = nilai;
+	}
+
+	public BigDecimal getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(BigDecimal saldo) {
+		this.saldo = saldo;
+	}
+
+	public List<Pencairan> getDaftarPencairan() {
+		return daftarPencairan;
+	}
+
+	public void setDaftarPencairan(List<Pencairan> daftarPencairan) {
+		this.daftarPencairan = daftarPencairan;
+	}
+
+	public List<Pembayaran> getDaftarPembayaran() {
+		return daftarPembayaran;
+	}
+
+	public void setDaftarPembayaran(List<Pembayaran> daftarPembayaran) {
+		this.daftarPembayaran = daftarPembayaran;
+	}
+	
 }

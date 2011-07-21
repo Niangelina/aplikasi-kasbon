@@ -53,4 +53,46 @@ public class Persetujuan {
 	
 	@Column(nullable=false)
 	private BigDecimal nilai;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Date getWaktuPersetujuan() {
+		return waktuPersetujuan;
+	}
+
+	public void setWaktuPersetujuan(Date waktuPersetujuan) {
+		this.waktuPersetujuan = waktuPersetujuan;
+	}
+
+	public Karyawan getPetugas() {
+		return petugas;
+	}
+
+	public void setPetugas(Karyawan petugas) {
+		this.petugas = petugas;
+	}
+
+	public Pengajuan getPengajuan() {
+		return pengajuan;
+	}
+
+	public void setPengajuan(Pengajuan pengajuan) {
+		this.pengajuan = pengajuan;
+	}
+
+	public BigDecimal getNilai() {
+		return nilai;
+	}
+
+	public void setNilai(BigDecimal nilai) {
+		this.nilai = nilai;
+	}
+	
+	
 }

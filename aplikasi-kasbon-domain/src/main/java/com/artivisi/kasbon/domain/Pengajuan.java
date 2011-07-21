@@ -58,5 +58,55 @@ public class Pengajuan {
 	@Enumerated(EnumType.STRING)
 	@Column(nullable=false)
 	private StatusPinjaman status = StatusPinjaman.DIAJUKAN;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Date getWaktuPengajuan() {
+		return waktuPengajuan;
+	}
+
+	public void setWaktuPengajuan(Date waktuPengajuan) {
+		this.waktuPengajuan = waktuPengajuan;
+	}
+
+	public Karyawan getPemohon() {
+		return pemohon;
+	}
+
+	public void setPemohon(Karyawan pemohon) {
+		this.pemohon = pemohon;
+	}
+
+	public BigDecimal getNilai() {
+		return nilai;
+	}
+
+	public void setNilai(BigDecimal nilai) {
+		this.nilai = nilai;
+	}
+
+	public Persetujuan getPersetujuan() {
+		return persetujuan;
+	}
+
+	public void setPersetujuan(Persetujuan persetujuan) {
+		this.persetujuan = persetujuan;
+	}
+
+	public StatusPinjaman getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusPinjaman status) {
+		this.status = status;
+	}
+	
+	
 	
 }

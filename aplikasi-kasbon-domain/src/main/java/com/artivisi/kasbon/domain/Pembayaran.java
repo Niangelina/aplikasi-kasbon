@@ -52,4 +52,46 @@ public class Pembayaran {
 	
 	@Column(nullable=false)
 	private BigDecimal nilai;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Pinjaman getPinjaman() {
+		return pinjaman;
+	}
+
+	public void setPinjaman(Pinjaman pinjaman) {
+		this.pinjaman = pinjaman;
+	}
+
+	public Karyawan getKasir() {
+		return kasir;
+	}
+
+	public void setKasir(Karyawan kasir) {
+		this.kasir = kasir;
+	}
+
+	public Date getWaktuPembayaran() {
+		return waktuPembayaran;
+	}
+
+	public void setWaktuPembayaran(Date waktuPembayaran) {
+		this.waktuPembayaran = waktuPembayaran;
+	}
+
+	public BigDecimal getNilai() {
+		return nilai;
+	}
+
+	public void setNilai(BigDecimal nilai) {
+		this.nilai = nilai;
+	}
+	
+	
 }
