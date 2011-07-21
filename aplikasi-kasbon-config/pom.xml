@@ -50,6 +50,7 @@
 			</resource>
 		</resources>
 		<plugins>
+		<!-- 
 			<plugin>
 				<groupId>org.codehaus.groovy.maven</groupId>
 				<artifactId>gmaven-plugin</artifactId>
@@ -68,6 +69,7 @@
 					</execution>
 				</executions>
 			</plugin>
+		 -->
 		</plugins>
 	</build>
 
