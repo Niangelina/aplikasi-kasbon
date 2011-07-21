@@ -1,5 +1,6 @@
 package com.artivisi.kasbon.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
@@ -8,6 +9,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.artivisi.kasbon.domain.Karyawan;
+import com.artivisi.kasbon.domain.Pembayaran;
+import com.artivisi.kasbon.domain.Pencairan;
+import com.artivisi.kasbon.domain.Pengajuan;
+import com.artivisi.kasbon.domain.Persetujuan;
+import com.artivisi.kasbon.domain.Pinjaman;
+import com.artivisi.kasbon.domain.StatusPinjaman;
 import com.artivisi.kasbon.service.KasbonService;
 
 
@@ -70,6 +77,169 @@ public class KasbonServiceImpl implements KasbonService {
 						"order by k.nip")
 				.setString("nip", "%"+nip+"%")
 				.uniqueResult();
+	}
+
+	@Override
+	public void save(Pengajuan p) {
+		sessionFactory.getCurrentSession().saveOrUpdate(p);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	@Transactional(readOnly=false)
+	public List<Pengajuan> findPengajuanByKaryawan(Karyawan k, Integer start,
+			Integer rows) {
+		String hql = "select p from Pengajuan p " +
+				"where p.karyawan.id = :idKaryawan " +
+				"order by p.waktuPengajuan ";
+		
+		if(start == null || start < 0) start = 0;
+		if(rows == null || rows < 0) rows = 20;
+		
+		return sessionFactory.getCurrentSession()
+				.createQuery(hql)
+				.setParameter("idKaryawan", k.getId())
+				.setFirstResult(start)
+				.setMaxResults(rows)
+				.list();
+	}
+
+	@Override
+	public Long countPengajuanByKaryawan(Karyawan k) {
+		String hql = "select count(p) from Pengajuan p " +
+				"where p.karyawan.id = :idKaryawan ";
+		return (Long) sessionFactory.getCurrentSession()
+				.createQuery(hql)
+				.setParameter("idKaryawan", k.getId())
+				.uniqueResult();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	@Transactional(readOnly=true)
+	public List<Pengajuan> findPengajuanByPeriode(Date mulai, Date sampai,
+			Integer start, Integer rows) {
+		String hql = "select p from Pengajuan p " +
+				"where p.waktuPengajuan between :mulai and :sampai " +
+				"order by p.waktuPengajuan ";
+		
+		if(start == null || start < 0) start = 0;
+		if(rows == null || rows < 0) rows = 20;
+		
+		return sessionFactory.getCurrentSession()
+				.createQuery(hql)
+				.setParameter("mulai", mulai)
+				.setParameter("sampai", sampai)
+				.setFirstResult(start)
+				.setMaxResults(rows)
+				.list();
+	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public Long countPengajuanByPeriode(Date mulai, Date sampai) {
+		String hql = "select count(p) from Pengajuan p " +
+				"where p.waktuPengajuan between :mulai and :sampai ";
+		
+		return (Long) sessionFactory.getCurrentSession()
+				.createQuery(hql)
+				.setParameter("mulai", mulai)
+				.setParameter("sampai", sampai)
+				.uniqueResult();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	@Transactional(readOnly=true)
+	public List<Pengajuan> findPengajuanByKaryawanAndPeriode(Karyawan k,
+			Date mulai, Date sampai, Integer start, Integer rows) {
+		String hql = "select p from Pengajuan p " +
+				"where p.waktuPengajuan between :mulai and :sampai " +
+				"and p.karyawan.id = :idKaryawan " +
+				"order by p.waktuPengajuan ";
+		
+		if(start == null || start < 0) start = 0;
+		if(rows == null || rows < 0) rows = 20;
+		
+		return sessionFactory.getCurrentSession()
+				.createQuery(hql)
+				.setParameter("mulai", mulai)
+				.setParameter("sampai", sampai)
+				.setParameter("idKaryawan", k.getId())
+				.setFirstResult(start)
+				.setMaxResults(rows)
+				.list();
+	}
+
+	@Override
+	@Transactional(readOnly=false)
+	public Long countPengajuanByKaryawanAndPeriode(Karyawan k, Date mulai,
+			Date sampai) {
+		String hql = "select count(p) from Pengajuan p " +
+				"where p.waktuPengajuan between :mulai and :sampai " +
+				"and p.karyawan.id = :idKaryawan ";
+		
+		return (Long) sessionFactory.getCurrentSession()
+				.createQuery(hql)
+				.setParameter("mulai", mulai)
+				.setParameter("sampai", sampai)
+				.setParameter("idKaryawan", k.getId())
+				.uniqueResult();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	@Transactional(readOnly=true)
+	public List<Pengajuan> findPengajuanByStatus(StatusPinjaman s,
+			Integer start, Integer rows) {
+		String hql = "select p from Pengajuan p " +
+				"where p.status = :status " +
+				"order by p.waktuPengajuan ";
+		
+		if(start == null || start < 0) start = 0;
+		if(rows == null || rows < 0) rows = 20;
+		
+		return sessionFactory.getCurrentSession()
+				.createQuery(hql)
+				.setParameter("status", s)
+				.setFirstResult(start)
+				.setMaxResults(rows)
+				.list();
+	}
+
+	@Override
+	public Long countPengajuanByStatus(StatusPinjaman s) {
+		String hql = "select count(p) from Pengajuan p " +
+				"where p.status = :status ";
+		
+		return (Long) sessionFactory.getCurrentSession()
+				.createQuery(hql)
+				.setParameter("status", s)
+				.uniqueResult();
+	}
+
+	@Override
+	public void save(Persetujuan p) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void save(Pinjaman p) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void save(Pencairan p) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void save(Pembayaran p) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
