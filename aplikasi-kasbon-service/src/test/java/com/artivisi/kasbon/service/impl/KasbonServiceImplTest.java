@@ -19,29 +19,40 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.FileInputStream;
 import java.math.BigDecimal;
 import java.util.List;
 
-import org.junit.BeforeClass;
+import javax.sql.DataSource;
+
+import org.dbunit.database.DatabaseConnection;
+import org.dbunit.dataset.xml.XmlDataSet;
+import org.dbunit.operation.DatabaseOperation;
+import org.junit.Before;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.artivisi.kasbon.domain.Karyawan;
 import com.artivisi.kasbon.domain.Pengajuan;
 import com.artivisi.kasbon.service.KasbonService;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration({"classpath*:com/artivisi/**/applicationContext.xml"})
 public class KasbonServiceImplTest {
 
-	private static KasbonService kasbonService;
+	@Autowired private KasbonService kasbonService;
+	@Autowired private DataSource dataSource;
 	
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-		ApplicationContext ctx = 
-				new ClassPathXmlApplicationContext("classpath*:com/artivisi/**/applicationContext.xml");
-		kasbonService = (KasbonService) ctx.getBean("kasbonService");
+	@Before
+	public void resetDatabase() throws Exception {
+		DatabaseOperation.CLEAN_INSERT
+		.execute(new DatabaseConnection(dataSource.getConnection()), 
+				new XmlDataSet(new FileInputStream("src/test/dbunit/karyawan.xml")));
 	}
-
+	
 	@Test
 	public void testSave() {
 		Karyawan k = new Karyawan();
