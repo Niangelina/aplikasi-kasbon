@@ -27,4 +27,10 @@ public class KaryawanController {
 		ModelMap mm = new ModelMap();
 		return mm;
 	}
+	
+	@RequestMapping("/karyawan/form")
+	public ModelMap form(){
+		ModelMap mm = new ModelMap();
+		return mm;
+	}
 }
