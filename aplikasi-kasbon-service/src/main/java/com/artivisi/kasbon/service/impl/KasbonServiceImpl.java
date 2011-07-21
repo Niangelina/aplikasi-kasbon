@@ -105,7 +105,7 @@ public class KasbonServiceImpl implements KasbonService {
 	public List<Pengajuan> findPengajuanByKaryawan(Karyawan k, Integer start,
 			Integer rows) {
 		String hql = "select p from Pengajuan p " +
-				"where p.karyawan.id = :idKaryawan " +
+				"where p.pemohon.id = :idKaryawan " +
 				"order by p.waktuPengajuan ";
 		
 		if(start == null || start < 0) start = 0;
@@ -122,7 +122,7 @@ public class KasbonServiceImpl implements KasbonService {
 	@Override
 	public Long countPengajuanByKaryawan(Karyawan k) {
 		String hql = "select count(p) from Pengajuan p " +
-				"where p.karyawan.id = :idKaryawan ";
+				"where p.pemohon.id = :idKaryawan ";
 		return (Long) sessionFactory.getCurrentSession()
 				.createQuery(hql)
 				.setParameter("idKaryawan", k.getId())
@@ -170,7 +170,7 @@ public class KasbonServiceImpl implements KasbonService {
 			Date mulai, Date sampai, Integer start, Integer rows) {
 		String hql = "select p from Pengajuan p " +
 				"where p.waktuPengajuan between :mulai and :sampai " +
-				"and p.karyawan.id = :idKaryawan " +
+				"and p.pemohon.id = :idKaryawan " +
 				"order by p.waktuPengajuan ";
 		
 		if(start == null || start < 0) start = 0;
@@ -192,7 +192,7 @@ public class KasbonServiceImpl implements KasbonService {
 			Date sampai) {
 		String hql = "select count(p) from Pengajuan p " +
 				"where p.waktuPengajuan between :mulai and :sampai " +
-				"and p.karyawan.id = :idKaryawan ";
+				"and p.pemohon.id = :idKaryawan ";
 		
 		return (Long) sessionFactory.getCurrentSession()
 				.createQuery(hql)
