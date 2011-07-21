@@ -17,8 +17,10 @@ package com.artivisi.kasbon.service.impl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -26,6 +28,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.artivisi.kasbon.domain.Karyawan;
+import com.artivisi.kasbon.domain.Pengajuan;
 import com.artivisi.kasbon.service.KasbonService;
 
 public class KasbonServiceImplTest {
@@ -52,6 +55,16 @@ public class KasbonServiceImplTest {
 		Karyawan k1 = kasbonService.findById(k.getId());
 		assertNotNull(k1);
 		assertEquals("333", k1.getNip());
+	}
+	
+	@Test
+	public void testCariPinjamanByKaryawan(){
+		Karyawan jimmy = kasbonService.findKaryawanByNip("1001");
+		assertNotNull(jimmy);
+		
+		List<Pengajuan> hasil = kasbonService.findPengajuanByKaryawan(jimmy, 0, 10);
+		assertNotNull(hasil);
+		assertTrue(hasil.size() == 1);
 	}
 
 }

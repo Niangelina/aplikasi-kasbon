@@ -13,5 +13,33 @@
 			<value>20000000.00</value>
 		</row>
 	</table>
+	
+	<table name="m_karyawan">
+		<column>id</column>
+		<column>nama</column>
+		<column>nip</column>
+		<column>plafon</column>
+		<row>
+			<value>1001</value>
+			<value><![CDATA[Jimmy Rengga]]></value>
+			<value>1001</value>
+			<value>15000000.00</value>
+		</row>
+	</table>
+	
+	<table name="t_pengajuan">
+		<column>id</column>
+		<column>id_pemohon</column>
+		<column>waktu_pengajuan</column>
+		<column>nilai</column>
+		<column>status</column>
+		<row>
+			<value>1000</value>
+			<value>1001</value>
+			<value>2011-07-21 14:00:00</value>
+			<value>150000.00</value>
+			<value>DIAJUKAN</value>
+		</row>
+	</table>
 
 </dataset>
