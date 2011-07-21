@@ -34,6 +34,7 @@
 
 	<build>
 		<plugins>
+		<!-- 
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>dbunit-maven-plugin</artifactId>
@@ -91,6 +92,7 @@
 				</executions>
 
 			</plugin>
+		 -->
 		</plugins>
 	</build>
 
