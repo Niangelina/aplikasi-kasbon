@@ -56,8 +56,19 @@
 
 				<executions>
 					<execution>
-						<id>populate-database</id>
+						<id>reset-database</id>
 						<phase>test-compile</phase>
+						<goals>
+							<goal>operation</goal>
+						</goals>
+						<configuration>
+							<type>CLEAN_INSERT</type>
+							<src>src/test/dbunit/karyawan.xml</src>
+						</configuration>
+					</execution>
+					<execution>
+						<id>populate-database</id>
+						<phase>test</phase>
 						<goals>
 							<goal>operation</goal>
 						</goals>
