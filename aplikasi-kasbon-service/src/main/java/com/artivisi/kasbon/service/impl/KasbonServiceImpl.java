@@ -32,7 +32,7 @@ import com.artivisi.kasbon.domain.Pinjaman;
 import com.artivisi.kasbon.domain.StatusPinjaman;
 import com.artivisi.kasbon.service.KasbonService;
 
-
+@SuppressWarnings("unchecked")
 @Service("kasbonService")
 @Transactional
 public class KasbonServiceImpl implements KasbonService {
@@ -50,7 +50,7 @@ public class KasbonServiceImpl implements KasbonService {
 				.get(Karyawan.class, id);
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	@Transactional(readOnly=true)
 	public List<Karyawan> findAllKaryawan(Integer start, Integer rows) {
@@ -71,7 +71,6 @@ public class KasbonServiceImpl implements KasbonService {
 				.uniqueResult();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional(readOnly=true)
 	public List<Karyawan> findKaryawanByNama(String nama) {
@@ -99,7 +98,6 @@ public class KasbonServiceImpl implements KasbonService {
 		sessionFactory.getCurrentSession().saveOrUpdate(p);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional(readOnly=false)
 	public List<Pengajuan> findPengajuanByKaryawan(Karyawan k, Integer start,
@@ -129,7 +127,6 @@ public class KasbonServiceImpl implements KasbonService {
 				.uniqueResult();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional(readOnly=true)
 	public List<Pengajuan> findPengajuanByPeriode(Date mulai, Date sampai,
@@ -163,7 +160,6 @@ public class KasbonServiceImpl implements KasbonService {
 				.uniqueResult();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional(readOnly=true)
 	public List<Pengajuan> findPengajuanByKaryawanAndPeriode(Karyawan k,
@@ -202,7 +198,6 @@ public class KasbonServiceImpl implements KasbonService {
 				.uniqueResult();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional(readOnly=true)
 	public List<Pengajuan> findPengajuanByStatus(StatusPinjaman s,
