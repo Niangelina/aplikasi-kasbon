@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+	<table name="m_karyawan">
+		<column>id</column>
+		<column>nama</column>
+		<column>nip</column>
+		<column>plafon</column>
+		<row>
+			<value>1000</value>
+			<value><![CDATA[Adi Sulistiono]]></value>
+			<value>1000</value>
+			<value>20000000.00</value>
+		</row>
+	</table>
+
+</dataset>

@@ -32,5 +32,56 @@
 		</dependency>
 	</dependencies>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>dbunit-maven-plugin</artifactId>
+
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>5.1.9</version>
+						<scope>runtime</scope>
+					</dependency>
+				</dependencies>
+
+				<configuration>
+					<driver>com.mysql.jdbc.Driver</driver>
+					<url>jdbc:mysql://localhost/kasbon</url>
+					<username>kasbon</username>
+					<password>kasbon</password>
+				</configuration>
+
+				<executions>
+					<execution>
+						<id>populate-database</id>
+						<phase>test</phase>
+						<goals>
+							<goal>operation</goal>
+						</goals>
+						<configuration>
+							<type>CLEAN_INSERT</type>
+							<src>src/test/dbunit/karyawan.xml</src>
+						</configuration>
+					</execution>
+					<execution>
+						<id>export-db-to-xml</id>
+						<phase>test</phase>
+						<goals>
+							<goal>export</goal>
+						</goals>
+						<configuration>
+							<format>xml</format>
+							<dest>${project.build.directory}/dbunit/export.xml</dest>
+						</configuration>
+					</execution>
+				</executions>
+
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
 
