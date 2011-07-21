@@ -89,7 +89,7 @@ public class KasbonServiceImpl implements KasbonService {
 				.createQuery("select k from Karyawan k " +
 						"where k.nip = :nip " +
 						"order by k.nip")
-				.setString("nip", "%"+nip+"%")
+				.setString("nip", nip)
 				.uniqueResult();
 	}
 
