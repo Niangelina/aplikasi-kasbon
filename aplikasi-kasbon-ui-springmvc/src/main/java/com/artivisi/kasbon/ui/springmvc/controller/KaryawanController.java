@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.artivisi.kasbon.domain.Karyawan;
@@ -38,6 +39,12 @@ import com.artivisi.kasbon.service.KasbonService;
 public class KaryawanController {
 	
 	@Autowired private KasbonService kasbonService;
+	
+	@RequestMapping("/karyawan/json")
+	@ResponseBody
+	public List<Karyawan> jsonListKaryawan(){
+		return kasbonService.findAllKaryawan(0, 100);
+	}
 	
 	@RequestMapping("/karyawan/list")
 	public ModelMap list(@RequestParam(required=false)String nama){
