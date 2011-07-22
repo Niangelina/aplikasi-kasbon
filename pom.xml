@@ -108,6 +108,8 @@
                             <exclude>.git/**</exclude>
                             <exclude>**/.metadata/**</exclude>
                             <exclude>**/extjs/**</exclude>
+                            <exclude>**/src/main/webapp/js/**</exclude>
+                            <exclude>**/src/main/webapp/css/**</exclude>
                         </excludes>
                     </configuration>
                     <executions>

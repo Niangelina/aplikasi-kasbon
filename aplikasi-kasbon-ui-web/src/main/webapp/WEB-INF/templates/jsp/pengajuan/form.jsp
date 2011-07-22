@@ -22,6 +22,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link type="text/css" href="<%=request.getContextPath()%>/resources/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" />	
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-ui-1.8.14.custom.min.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+
+		// Datepicker
+		$('input[name=waktuPengajuan]').datepicker({
+			format: 'yyyy-mm-dd'
+		});
+		
+	});
+</script>
+
 <title>Form Pengajuan Pinjaman</title>
 </head>
 <body>
