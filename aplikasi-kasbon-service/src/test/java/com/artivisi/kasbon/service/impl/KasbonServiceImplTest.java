@@ -63,7 +63,7 @@ public class KasbonServiceImplTest {
 		kasbonService.save(k);
 		assertNotNull(k.getId());
 		
-		Karyawan k1 = kasbonService.findById(k.getId());
+		Karyawan k1 = kasbonService.findKaryawanById(k.getId());
 		assertNotNull(k1);
 		assertEquals("333", k1.getNip());
 	}

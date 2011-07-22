@@ -15,15 +15,20 @@
  */
 package com.artivisi.kasbon.ui.springmvc.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.artivisi.kasbon.domain.Karyawan;
@@ -35,16 +40,32 @@ public class KaryawanController {
 	@Autowired private KasbonService kasbonService;
 	
 	@RequestMapping("/karyawan/list")
-	public ModelMap list(){
+	public ModelMap list(@RequestParam(required=false)String nama){
+		List<Karyawan> daftarKaryawan = new ArrayList<Karyawan>();
+		
+		if(StringUtils.hasText(nama)) {
+			daftarKaryawan.addAll(kasbonService.findKaryawanByNama(nama));
+		} else {
+			daftarKaryawan.addAll(kasbonService.findAllKaryawan(0, 10));
+		}
+		
 		ModelMap mm = new ModelMap();
+		
+		mm.addAttribute("karyawanList", daftarKaryawan);
+		
 		return mm;
 	}
 	
 	@RequestMapping(value="/karyawan/form", method=RequestMethod.GET)
-	public ModelMap displayForm(){
+	public ModelMap displayForm(@RequestParam(required=false) Long id){
 		ModelMap mm = new ModelMap();
 		
-		Karyawan k = new Karyawan();
+		Karyawan k = kasbonService.findKaryawanById(id);
+		
+		if(k == null){
+			k = new Karyawan();
+		}
+		
 		mm.addAttribute(k);
 		
 		return mm;

@@ -45,7 +45,8 @@ public class KasbonServiceImpl implements KasbonService {
 	}
 
 	@Override
-	public Karyawan findById(Long id) {
+	public Karyawan findKaryawanById(Long id) {
+		if(id == null) return null;
 		return (Karyawan) sessionFactory.getCurrentSession()
 				.get(Karyawan.class, id);
 	}
@@ -76,7 +77,7 @@ public class KasbonServiceImpl implements KasbonService {
 	public List<Karyawan> findKaryawanByNama(String nama) {
 		return sessionFactory.getCurrentSession()
 				.createQuery("select k from Karyawan k " +
-						"where k.nama = :nama " +
+						"where k.nama like :nama " +
 						"order by k.nip")
 				.setString("nama", "%"+nama+"%")
 				.list();
