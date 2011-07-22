@@ -23,6 +23,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(
@@ -33,12 +38,20 @@ public class Karyawan {
 	@Id @GeneratedValue
 	private Long id;
 	
+	@NotNull
+	@NotEmpty
+	@Size(max=100)
 	@Column(nullable=false, length=100)
 	private String nip;
 	
+	@NotNull
+	@NotEmpty
+	@Size(max=255)
 	@Column(nullable=false)
 	private String nama;
 	
+	@NotNull
+	@Min(1)
 	@Column(nullable=false)
 	private BigDecimal plafon;
 

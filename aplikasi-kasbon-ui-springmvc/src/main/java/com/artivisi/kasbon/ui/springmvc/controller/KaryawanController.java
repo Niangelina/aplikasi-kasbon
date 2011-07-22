@@ -15,12 +15,24 @@
  */
 package com.artivisi.kasbon.ui.springmvc.controller;
 
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
+
+import com.artivisi.kasbon.domain.Karyawan;
+import com.artivisi.kasbon.service.KasbonService;
 
 @Controller
 public class KaryawanController {
+	
+	@Autowired private KasbonService kasbonService;
 	
 	@RequestMapping("/karyawan/list")
 	public ModelMap list(){
@@ -28,9 +40,29 @@ public class KaryawanController {
 		return mm;
 	}
 	
-	@RequestMapping("/karyawan/form")
-	public ModelMap form(){
+	@RequestMapping(value="/karyawan/form", method=RequestMethod.GET)
+	public ModelMap displayForm(){
 		ModelMap mm = new ModelMap();
+		
+		Karyawan k = new Karyawan();
+		mm.addAttribute(k);
+		
 		return mm;
+	}
+	
+	@RequestMapping(value="/karyawan/form", method=RequestMethod.POST)
+	public String processForm(@ModelAttribute @Valid Karyawan k, 
+			BindingResult errors, 
+			SessionStatus status){
+		
+		if(errors.hasErrors()) {
+			return "/karyawan/form";
+		}
+		
+		kasbonService.save(k);
+		
+		status.setComplete();
+		return "redirect:list";
+		
 	}
 }
