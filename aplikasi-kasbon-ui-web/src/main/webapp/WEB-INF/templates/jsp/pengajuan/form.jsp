@@ -32,7 +32,7 @@
 
 		// Datepicker
 		$('input[name=waktuPengajuan]').datepicker({
-			format: 'yyyy-mm-dd'
+			dateFormat: "yy-mm-dd"
 		});
 		
 	});

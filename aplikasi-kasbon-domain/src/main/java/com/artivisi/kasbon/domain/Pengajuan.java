@@ -43,7 +43,7 @@ public class Pengajuan {
 	
 	@Column(name="waktu_pengajuan", nullable=false)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date waktuPengajuan = new Date();
+	private Date waktuPengajuan;
 	
 	@ManyToOne
 	@JoinColumn(name="id_pemohon", nullable=false)
