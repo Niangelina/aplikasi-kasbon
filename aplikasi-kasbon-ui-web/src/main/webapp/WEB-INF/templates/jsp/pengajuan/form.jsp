@@ -50,7 +50,6 @@
 				<td>Karyawan</td>
 				<td>
 				<form:select path="pemohon">
-						<form:option value="-" label="--Please Select" />
 						<form:options items="${karyawanList}" 
 							itemValue="id"
 							itemLabel="nama" />

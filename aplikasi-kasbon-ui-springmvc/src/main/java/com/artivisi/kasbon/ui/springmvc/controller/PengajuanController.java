@@ -15,19 +15,38 @@
  */
 package com.artivisi.kasbon.ui.springmvc.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
 
+import com.artivisi.kasbon.domain.Karyawan;
 import com.artivisi.kasbon.domain.Pengajuan;
 import com.artivisi.kasbon.service.KasbonService;
+import com.artivisi.kasbon.ui.springmvc.propertyeditor.KaryawanPropertyEditor;
 
 
 @Controller
 public class PengajuanController {
 	@Autowired private KasbonService kasbonService;
+	
+	@InitBinder
+	public void initKonverter(WebDataBinder binder){
+		binder.registerCustomEditor(Karyawan.class, 
+				new KaryawanPropertyEditor(kasbonService));
+		binder.registerCustomEditor(Date.class, 
+				new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
+	}
 	
 	@RequestMapping(value="/pengajuan/form", method=RequestMethod.GET)
 	public ModelMap displayForm(){
@@ -37,5 +56,16 @@ public class PengajuanController {
 		mm.addAttribute(new Pengajuan());
 		
 		return mm;
+	}
+	
+	@RequestMapping(value="/pengajuan/form", method=RequestMethod.POST)
+	public String processForm(@ModelAttribute Pengajuan p, 
+			BindingResult errors, SessionStatus status){
+		if(errors.hasErrors()){
+			return "/pengajuan/form";
+		}
+		kasbonService.save(p);
+		status.setComplete();
+		return "redirect:form";
 	}
 }
