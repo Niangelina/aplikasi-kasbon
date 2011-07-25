@@ -103,6 +103,7 @@
                         <excludes>
                             <exclude>LICENSE</exclude>
                             <exclude>NOTICE</exclude>
+                            <exclude>**/Servers/**</exclude>
                             <exclude>**/src/test/resources/**</exclude>
                             <exclude>**/src/test/data/**</exclude>
                             <exclude>.git/**</exclude>

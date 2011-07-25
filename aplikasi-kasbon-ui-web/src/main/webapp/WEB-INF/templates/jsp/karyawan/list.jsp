@@ -27,6 +27,10 @@
 <title>Daftar Karyawan</title>
 </head>
 <body>
+	<div class="post">
+		<h2 class="title">Welcome to our website </h2>
+		<p class="byline"><small>Posted by FreeCssTemplates</small></p>
+		<div class="entry">
 	<h1>Daftar Karyawan</h1>
 
 	<form method="get">
@@ -57,7 +61,7 @@
 				</tr>
 			</c:forEach>
 		</tbody>
-	</table>
+	</table></div></div>
 
 </body>
 </html>
