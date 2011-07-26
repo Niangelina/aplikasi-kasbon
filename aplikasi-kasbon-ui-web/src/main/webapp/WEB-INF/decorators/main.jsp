@@ -35,6 +35,7 @@
 	<div id="menu">
 		<ul>
 			<li class="first"><a href="<%=request.getContextPath()%>">Home</a></li>
+			<li><a href="<%=request.getContextPath()%>/j_spring_security_logout">Logout</a></li>
 		</ul>
 	</div>
 	<!-- end #menu -->
