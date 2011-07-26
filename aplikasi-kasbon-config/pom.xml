@@ -50,7 +50,6 @@
 			</resource>
 		</resources>
 		<plugins>
-		<!-- 
 			<plugin>
 				<groupId>org.codehaus.groovy.maven</groupId>
 				<artifactId>gmaven-plugin</artifactId>
@@ -62,14 +61,17 @@
 						</goals>
 						<configuration>
 							<source>
+							try {
 								def scmversion = 'git describe'.execute().text.trim()
 								project.properties.setProperty('scmVersion',scmversion)
+							} catch(Exception e){
+								project.properties.setProperty('scmVersion','undefined')
+							}
 							</source>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-		 -->
 		</plugins>
 	</build>
 
