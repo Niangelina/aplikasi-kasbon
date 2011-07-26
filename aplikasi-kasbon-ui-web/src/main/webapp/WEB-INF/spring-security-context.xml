@@ -29,6 +29,11 @@
 		<form-login login-page="/login.jsp" 
 					authentication-failure-url = "/login.jsp?login_error=1"
 		/>
+		
+		<session-management invalid-session-url="/errors/session_expired.jsp">
+	        <concurrency-control max-sessions="1" 
+	        />
+	    </session-management>
 	</http>
 
 	<authentication-manager>
