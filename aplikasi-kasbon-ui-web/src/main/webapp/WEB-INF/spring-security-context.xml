@@ -38,7 +38,11 @@
 				<user name="meli" password="456" authorities="ROLE_KARYAWAN_VIEW" />
 			</user-service>
 		</authentication-provider>
-		<authentication-provider user-service-ref='myUserDetailsService'/>
+		<authentication-provider user-service-ref='myUserDetailsService'>
+			<password-encoder hash="md5">
+				<salt-source user-property="username" />
+			</password-encoder>
+		</authentication-provider>
 	</authentication-manager>
 
 	<beans:bean id="myUserDetailsService"
