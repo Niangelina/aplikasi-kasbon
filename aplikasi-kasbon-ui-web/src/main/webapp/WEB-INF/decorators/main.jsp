@@ -24,7 +24,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title> <decorator:title></decorator:title> </title>
+
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/style.css" media="screen" />
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-1.5.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+
+		$.ajaxSetup ({  
+	        cache: false  
+	    });  
+	    
+	    var urlInfo = "<%=request.getContextPath()%>/info/user";  
+        $.get(urlInfo, function(data){
+			$('#currentUser').html("User : "+data.currentUser);
+			$('#jamLogin').html("Login : "+data.jamLogin);
+        }); 
+		
+	});
+</script>
+
 </head>
 <body>
 <div id="header">
@@ -52,6 +70,14 @@
 	<!-- end #content -->
 	<div id="sidebar">
 			<ul>
+				<li>
+					<h2>Info</h2>
+					<ul>
+						<li id="currentUser"></li>
+						<li id="jamLogin"></li>
+					</ul>
+				</li>
+			
 				<li>
 					<h2>Menu</h2>
 					<ul>
