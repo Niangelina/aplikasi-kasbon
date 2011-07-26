@@ -32,3 +32,22 @@ create table m_group_permission(
     foreign key (id_permission) references m_permission(id)
 );
 
+insert into m_group (name)
+values ('Staff'), ('Supervisor'), ('Manager');
+
+insert into m_user (username, password, enable, id_group)
+values
+('endy', '123', 1, 1),
+('adi', '123', 1, 2),
+('jimmy', '123', 1, 3);
+
+insert into m_permission (name)
+values ('KARYAWAN_VIEW'), ('KARYAWAN_EDIT');
+
+insert into m_group_permission (id_group, id_permission)
+values
+(1,1),
+(2,2),
+(3,1),
+(3,2);
+
