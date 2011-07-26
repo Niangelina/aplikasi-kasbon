@@ -23,8 +23,8 @@
            http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
 	<http auto-config="true">
-		<intercept-url pattern="/karyawan/list" access="ROLE_USER" />
-		<intercept-url pattern="/karyawan/form" access="ROLE_ADMIN" />
+		<intercept-url pattern="/karyawan/list" access="ROLE_KARYAWAN_VIEW" />
+		<intercept-url pattern="/karyawan/form" access="ROLE_KARYAWAN_EDIT" />
 		<intercept-url pattern="/**" filters="none" />
 		<form-login login-page="/login.jsp" 
 					authentication-failure-url = "/login.jsp?login_error=1"
@@ -34,10 +34,30 @@
 	<authentication-manager>
 		<authentication-provider>
 			<user-service>
-				<user name="endy" password="123" authorities="ROLE_USER, ROLE_ADMIN" />
-				<user name="adi" password="456" authorities="ROLE_USER" />
+				<user name="ira" password="123" authorities="ROLE_KARYAWAN_EDIT, ROLE_KARYAWAN_VIEW" />
+				<user name="meli" password="456" authorities="ROLE_KARYAWAN_VIEW" />
 			</user-service>
 		</authentication-provider>
+		<authentication-provider user-service-ref='myUserDetailsService'/>
 	</authentication-manager>
+
+	<beans:bean id="myUserDetailsService"
+		class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="usersByUsernameQuery"
+			value="select username, password, enable as enabled 
+					from m_user where username=?"
+		></beans:property>
+		<beans:property name="authoritiesByUsernameQuery"
+			value="select u.username, p.name as authority 
+			from m_user u inner join m_group g on u.id_group = g.id  
+			inner join m_group_permission gp on gp.id_group = g.id  
+			inner join m_permission p on gp.id_permission = p.id  
+			where u.username = ?"
+		></beans:property>
+		
+		<beans:property name="rolePrefix" value="ROLE_"/>
+	</beans:bean>
+	
 
 </beans:beans>
