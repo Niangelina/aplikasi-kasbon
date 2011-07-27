@@ -1,3 +1,5 @@
+logs
+
 #OCI
 /src/main/php/application/config/database.php
 src/main/php/application/logs
