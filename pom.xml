@@ -15,6 +15,11 @@
         <module>aplikasi-kasbon-ui-web</module>
     </modules>
 
+	<scm>
+		<connection>scm:git:git@github.com:artivisi/aplikasi-kasbon.git</connection>
+		<url>scm:git:git@github.com:artivisi/aplikasi-kasbon.git</url>
+		<developerConnection>scm:git:git@github.com:artivisi/aplikasi-kasbon.git</developerConnection>
+	</scm>
 
     <!-- Shared version number properties -->
     <properties>
@@ -122,6 +127,11 @@
                         </execution>
                     </executions>
                 </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
         </plugins>
     </build>
 </project>
