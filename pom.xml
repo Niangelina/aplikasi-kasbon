@@ -134,6 +134,7 @@
 					<configuration>
 						<goals>deploy</goals>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<tagNameFormat>@{version}</tagNameFormat>
 					</configuration>
 				</plugin>
         </plugins>
