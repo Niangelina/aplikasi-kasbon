@@ -1,11 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>com.artivisi.kasbon</groupId>
 		<artifactId>aplikasi-kasbon-parent</artifactId>
-		<version>1.0-SNAPSHOT</version>
+		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>aplikasi-kasbon-service</artifactId>
@@ -16,13 +15,13 @@
 		<dependency>
 			<groupId>com.artivisi.kasbon</groupId>
 			<artifactId>aplikasi-kasbon-domain</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>0.1.0-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.artivisi.kasbon</groupId>
 			<artifactId>aplikasi-kasbon-config</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>0.1.0-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
